@@ -33,8 +33,7 @@ def assign_cargo_to_flights(cargo_list):
         
         for flight_name, flight in flight_schedule.items():
             if (cargo.type == "Perishable" and flight.destination == "New York") or (cargo.type == "Fragile"):
-                # Perishable cargo should be assigned to flights going to New York
-                # Fragile cargo can be assigned to any flight
+
                 if cargo.weight <= flight.capacity and is_flight_available(flight.destination, cargo.weight):
                     assigned = True
                     flight.cargo_list.append(cargo.type)  # Track cargo assigned to flight
